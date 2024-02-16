@@ -48,7 +48,7 @@ Widget buildTaskItem(Map model, context) => Dismissible(
             '${model['time']}',
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20.0,
         ),
         Expanded(
@@ -58,21 +58,21 @@ Widget buildTaskItem(Map model, context) => Dismissible(
             children: [
               Text(
                 '${model['title']}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 '${model['date']}',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.grey,
                 ),
               ),
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20.0,
         ),
         IconButton(
@@ -83,7 +83,7 @@ Widget buildTaskItem(Map model, context) => Dismissible(
               id: model['id'],
             );
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.check_box,
             color: Colors.green,
           ),
@@ -95,7 +95,7 @@ Widget buildTaskItem(Map model, context) => Dismissible(
               id: model['id'],
             );
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.archive,
             color: Colors.black45,
           ),
@@ -112,7 +112,7 @@ Widget buildTaskItem(Map model, context) => Dismissible(
 Widget tasksBuilder({
   required List<Map> tasks,
 }) => ConditionalBuilder(
-  condition: tasks.length > 0,
+  condition: tasks.isNotEmpty,
   builder: (context) => ListView.separated(
     itemBuilder: (context, index)
     {
@@ -130,7 +130,7 @@ Widget tasksBuilder({
     ),
     itemCount: tasks.length,
   ),
-  fallback: (context) => Center(
+  fallback: (context) => const Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

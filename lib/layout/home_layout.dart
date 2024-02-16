@@ -11,6 +11,8 @@ class HomeLayout extends StatelessWidget {
   var timeController = TextEditingController();
   var dateController = TextEditingController();
 
+  HomeLayout({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -29,7 +31,7 @@ class HomeLayout extends StatelessWidget {
             body: ConditionalBuilder(
               condition: state is! AppGetDatabaseLoadingState,
               builder: (context) => cubit.screens[cubit.currentIndex],
-              fallback: (context) => Center(child: CircularProgressIndicator()),
+              fallback: (context) => const Center(child: CircularProgressIndicator()),
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: ()
@@ -39,7 +41,7 @@ class HomeLayout extends StatelessWidget {
               builder: (BuildContext context) {
                    return Container(
                       color: Colors.white,
-                      padding: EdgeInsets.all(
+                      padding: const EdgeInsets.all(
                         20.0,
                       ),
                       child: Column(
@@ -50,7 +52,7 @@ class HomeLayout extends StatelessWidget {
                               hint: 'Task Title',
                               prefixIcon: Icons.title,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             defaultTextInput(
@@ -69,7 +71,7 @@ class HomeLayout extends StatelessWidget {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             defaultTextInput(
@@ -90,7 +92,7 @@ class HomeLayout extends StatelessWidget {
                                 );
                                 },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             TextButton(
@@ -101,14 +103,14 @@ class HomeLayout extends StatelessWidget {
                                     date: dateController.text,
                                   );
                                 },
-                                child: Text('ADD'))
+                                child: const Text('ADD'))
                           ],
                         ),
                     );
               },
             );
               },
-              child: Icon(
+              child: const Icon(
                 Icons.add,
               ),
             ),
@@ -118,8 +120,8 @@ class HomeLayout extends StatelessWidget {
               onTap: (index) {
                 cubit.changeIndex(index);
               },
-              items: [
-                BottomNavigationBarItem(
+              items: const[
+                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.menu,
                   ),

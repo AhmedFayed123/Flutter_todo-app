@@ -7,6 +7,8 @@ import '../../shared/cubit/states.dart';
 
 class ArchivedTasksScreen extends StatelessWidget
 {
+  const ArchivedTasksScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppStates>(
